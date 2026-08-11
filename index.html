@@ -3,38 +3,1028 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070b17">
 
-<title>SANNPREMIUM - Premium Murah</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>SANNPREMIUM - Premium Digital Store</title>
 
 <style>
-
-/* =========================================================
-   DASAR
-========================================================= */
-
-:root{
-    --bg:#0f172a;
-    --bg2:#111c33;
-    --card:#1e293b;
-    --card2:#243247;
-    --border:#334155;
-
-    --text:#f8fafc;
-    --muted:#94a3b8;
-
-    --blue:#38bdf8;
-    --purple:#8b5cf6;
-    --green:#25d366;
-    --red:#ef4444;
-    --orange:#f59e0b;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+:root {
+    --bg: #060914;
+    --card: rgba(16, 23, 42, .78);
+    --card2: #11192d;
+    --primary: #6c63ff;
+    --secondary: #00d4ff;
+    --text: #ffffff;
+    --muted: #9ca8c7;
+    --border: rgba(255,255,255,.08);
+    --green: #20d47a;
+    --red: #ff5574;
+    --yellow: #ffd166;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(108,99,255,.18), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(0,212,255,.12), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(108,99,255,.12), transparent 40%),
+        var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(18px);
+    background: rgba(6,9,20,.78);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 17px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    background: linear-gradient(90deg,#7b6cff,#00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cart-button {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.06);
+    color: white;
+    padding: 11px 15px;
+    border-radius: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    transition: .25s;
+}
+
+.cart-button:hover {
+    background: rgba(108,99,255,.2);
+    transform: translateY(-2px);
+}
+
+.cart-count {
+    min-width: 21px;
+    height: 21px;
+    padding: 0 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary);
+    border-radius: 50px;
+    font-size: 12px;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+    padding: 75px 20px 45px;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border: 1px solid rgba(108,99,255,.3);
+    background: rgba(108,99,255,.1);
+    border-radius: 100px;
+    color: #b8b2ff;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 8vw, 72px);
+    line-height: 1;
+    font-weight: 950;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg,#7e72ff,#00d4ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 22px auto 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ================= CATEGORY ================= */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px 20px 70px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.section-title h2 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+.category-card {
+    position: relative;
+    padding: 30px 22px;
+    min-height: 180px;
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.025)
+    );
+    border: 1px solid var(--border);
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.category-card::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: -40px;
+    top: -40px;
+    border-radius: 50%;
+    background: var(--primary);
+    filter: blur(60px);
+    opacity: .25;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(108,99,255,.5);
+}
+
+.category-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.category-card h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.category-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.available {
+    color: var(--green) !important;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.unavailable {
+    color: var(--yellow) !important;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+/* ================= PRODUCTS ================= */
+
+#productsSection {
+    display: none;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 23px;
+    backdrop-filter: blur(15px);
+    transition: .3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(108,99,255,.4);
+}
+
+.product-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.product-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    background: linear-gradient(135deg,#262e54,#151b31);
+    border: 1px solid var(--border);
+}
+
+.product-top h3 {
+    font-size: 21px;
+}
+
+.product-top p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-item {
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.025);
+    border-radius: 15px;
+    padding: 14px;
+}
+
+.item-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.item-note {
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.price {
+    color: #8e86ff;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.add-button {
+    width: 100%;
+    margin-top: 11px;
+    padding: 11px;
+    border: none;
+    border-radius: 11px;
+    background: linear-gradient(90deg,#665cff,#287cff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.add-button:hover {
+    filter: brightness(1.15);
+    transform: scale(1.01);
+}
+
+/* ================= CART ================= */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+.modal {
+    width: min(700px,100%);
+    max-height: 92vh;
+    overflow-y: auto;
+    background: #0d1427;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    box-shadow: 0 25px 100px rgba(0,0,0,.5);
+    animation: modalIn .25s ease;
+}
+
+@keyframes modalIn {
+    from {
+        transform: scale(.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: #0d1427;
+    z-index: 2;
+}
+
+.modal-header h2 {
+    font-size: 20px;
+}
+
+.close {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,.07);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.empty {
+    text-align: center;
+    color: var(--muted);
+    padding: 40px 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.025);
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.cart-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.cart-price {
+    color: #8e86ff;
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.remove {
+    background: rgba(255,85,116,.1);
+    color: var(--red);
+    border: 1px solid rgba(255,85,116,.2);
+    padding: 8px 10px;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.total-box {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 16px;
+    background: linear-gradient(
+        135deg,
+        rgba(108,99,255,.15),
+        rgba(0,212,255,.07)
+    );
+    border: 1px solid rgba(108,99,255,.2);
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-row strong:last-child {
+    color: #a9a3ff;
+    font-size: 20px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(90deg,#6c63ff,#008cff);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ================= CHECKOUT ================= */
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.045);
+    color: white;
+    border-radius: 11px;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 75px;
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+
+.payment-option {
+    padding: 13px 8px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,.03);
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.payment-option.active {
+    border-color: #746cff;
+    background: rgba(108,99,255,.15);
+}
+
+.payment-details {
+    display: none;
+    margin-top: 12px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    background: rgba(255,255,255,.025);
+}
+
+.payment-details.active {
+    display: block;
+}
+
+.payment-number {
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin: 7px 0;
+}
+
+.qris-box {
+    text-align: center;
+}
+
+.qris-box img {
+    width: min(280px,100%);
+    border-radius: 12px;
+    background: white;
+    padding: 8px;
+}
+
+.download-qris {
+    display: block;
+    width: min(280px,100%);
+    margin: 12px auto 0;
+    padding: 12px;
+    border-radius: 11px;
+    background: linear-gradient(90deg,#665cff,#287cff);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.upload-box {
+    border: 1px dashed rgba(255,255,255,.2);
+    padding: 16px;
+    border-radius: 13px;
+    text-align: center;
+}
+
+.upload-box input {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.preview {
+    display: none;
+    margin: 15px auto 0;
+    max-width: 250px;
+    max-height: 300px;
+    border-radius: 12px;
+}
+
+.order-summary {
+    background: rgba(255,255,255,.03);
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 7px 0;
+    color: #d9def1;
+    font-size: 13px;
+}
+
+.summary-line.total {
+    border-top: 1px solid var(--border);
+    margin-top: 7px;
+    padding-top: 13px;
+    font-weight: bold;
+    color: white;
+}
+
+.summary-line.total span:last-child {
+    color: #938cff;
+}
+
+/* ================= SUCCESS ================= */
+
+.success {
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.success-icon {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.success h2 {
+    margin-bottom: 10px;
+}
+
+.success p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.wa-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 12px;
+    background: #20c76a;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ================= TOAST ================= */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    transform: translate(-50%,120px);
+    padding: 13px 18px;
+    background: #161f38;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    z-index: 500;
+    transition: .3s;
+    font-size: 13px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.4);
+}
+
+.toast.show {
+    transform: translate(-50%,0);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 35px 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding-top: 55px;
+    }
+}
+
+@media(max-width:500px) {
+    .navbar {
+        padding: 14px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .hero {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .section {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .payment-options {
+        grid-template-columns: 1fr;
+    }
+
+    .modal {
+        border-radius: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+    <div class="navbar">
+        <div class="logo">
+            SANN<span>PREMIUM</span>
+        </div>
+
+        <button class="cart-button" onclick="openCart()">
+            🛒 Keranjang
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="badge">
+        ✨ PREMIUM DIGITAL STORE
+    </div>
+
+    <h1>
+        Upgrade Your<br>
+        <span>Digital Life.</span>
+    </h1>
+
+    <p>
+        Nikmati berbagai layanan premium dengan harga terjangkau.
+        Pilih kebutuhanmu dan lakukan pemesanan dengan mudah.
+    </p>
+
+</section>
+
+
+<!-- ================= CATEGORY ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <h2>Pilih Kategori</h2>
+        <p>Mau cari apa hari ini?</p>
+    </div>
+
+    <div class="category-grid">
+
+        <div class="category-card"
+             onclick="showUnavailable('Kebutuhan Sosmed')">
+
+            <div class="category-icon">📱</div>
+
+            <h3>Kebutuhan Sosmed</h3>
+
+            <p>
+                Berbagai kebutuhan untuk sosial media.
+            </p>
+
+            <p class="unavailable">
+                ● Belum Tersedia
+            </p>
+
+        </div>
+
+
+        <div class="category-card"
+             onclick="showProducts()">
+
+            <div class="category-icon">💎</div>
+
+            <h3>Aplikasi Premium</h3>
+
+            <p>
+                Netflix, Canva, Alight Motion,
+                YouTube dan lainnya.
+            </p>
+
+            <p class="available">
+                ● Tersedia
+            </p>
+
+        </div>
+
+
+        <div class="category-card"
+             onclick="showUnavailable('Top Up Game')">
+
+            <div class="category-icon">🎮</div>
+
+            <h3>Top Up Game</h3>
+
+            <p>
+                Top up berbagai game favoritmu.
+            </p>
+
+            <p class="unavailable">
+                ● Belum Tersedia
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="section" id="productsSection">
+
+    <div class="section-title">
+        <h2>💎 Aplikasi Premium</h2>
+        <p>Pilih produk yang kamu butuhkan</p>
+    </div>
+
+
+    <div class="products-grid">
+
+
+        <!-- NETFLIX -->
+
+        <div class="product-card">
+
+            <div class="product-top">
+
+                <div class="product-icon">🎬</div>
+
+                <div>
+                    <h3>Netflix</h3>
+                    <p>Premium Streaming</p>
+                </div>
+
+            </div>
+
+
+            <div class="product-list">
+
+
+                <div class="product-item">
+
+                    <div class="item-info">
+
+                        <div>
+                            <div class="item-name">
+                                Private Mobile 1P1U
+                            </div>
+
+                            <div class="item-note">
+                                1 Bulan
+                            </div>
+                        </div>
+
+                        <div class="price">
+                            Rp 20.000
+                        </div>
+
+                    </div>
+
+                    <button class="add-button"
+                        onclick="addToCart(
+                            'Netflix - Private Mobile 1P1U',
+                            20000,
+                            '1 Bulan'
+                        )">
+                        + Tambah ke Keranjang
+                    </button>
+
+                </div>
+
+
+                <div class="product-item">
+
+                    <div class="item-info">
+
+                        <div>
+                            <div class="item-name">
+                                Sharing 1P1U
+                            </div>
+
+                            <div class="item-note">
+                                1 Bulan • Max login 1 device
+                            </div>
+                        </div>
+
+                        <div class="price">
+                            Rp 18.000
+                        </div>
+
+                    </div>
+
+                    <button class="add-button"
+                        onclick="addToCart(
+                            'Netflix - Sharing 1P1U',
+                            18000,
+                            '1 Bulan • Max login 1 device'
+                        )">
+                        + Tambah ke Keranjang
+                    </button>
+
+                </div>
+
+
+                <div class="product-item">
+
+                    <div class="item-info">
+
+                        <div>
+                            <div class="item-name">
+                                Sharing 1P2U
+                            </div>
+
+                            <div class="item-note">
+                                1 Bulan • Sering limit
+                            </div>
+                        </div>
+
+                        <div class="price">
+                            Rp 15.000
+                        </div>
+
+                    </div>
+
+                    <button class="add-button"
+                        onclick="addToCart(
+                            'Netflix - Sharing 1P2U',
+                            15000,
+                            '1 Bulan • Sering limit'
+                        )">
+                        + Tambah ke Keranjang
+                    </button>
+
+                </div>
+
+
+                <div class="product-item">
+
+                    <div class="item-info">
+
+                        <div>
+                            <div class="item-name">
+                                Semi Privat
+                            </div>
+
+                            <div class="item-note">
+                                1 Bulan • Gak bisa nonton bareng
+                            </div>
+                        </div>
+
+                        <div class="price">
+                            Rp 25.000
+                        </div>
+
+                    </div>
+
+                    <button class="add-button"
+                        onclick="addToCart(
+                            'Netflix - Semi Privat',
+                            25000,
+                            '1 Bulan • Gak bisa nonton bareng'
+                        )">
+                        + Tambah ke Keranjang
+                    </button>
+
+                </div>
+
+
+                <div class="product-item">
+
+                    <div class="item-info">
+
+                        <div>
+                            <div class="item-name">
+                                Netflix Sultan Vi}
 
 *{
     margin:0;
