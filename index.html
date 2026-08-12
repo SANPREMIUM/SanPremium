@@ -1,2490 +1,854 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070b17">
-
-<title>SANNPREMIUM - Premium Digital Store</title>
-
+<title>SANNPREMIUM — Akun Premium Termurah & Terpercaya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --bg: #060914;
-    --card: rgba(16, 23, 42, .78);
-    --card2: #11192d;
-    --primary: #6c63ff;
-    --secondary: #00d4ff;
-    --text: #ffffff;
-    --muted: #9ca8c7;
-    --border: rgba(255,255,255,.08);
-    --green: #20d47a;
-    --red: #ff5574;
-    --yellow: #ffd166;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background:
-        radial-gradient(circle at 10% 10%, rgba(108,99,255,.18), transparent 30%),
-        radial-gradient(circle at 90% 20%, rgba(0,212,255,.12), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(108,99,255,.12), transparent 40%),
-        var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* ================= HEADER ================= */
-
-header {
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(18px);
-    background: rgba(6,9,20,.78);
-    border-bottom: 1px solid var(--border);
-}
-
-.navbar {
-    max-width: 1200px;
-    margin: auto;
-    padding: 17px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
-
-.logo span {
-    background: linear-gradient(90deg,#7b6cff,#00d4ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.cart-button {
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.06);
-    color: white;
-    padding: 11px 15px;
-    border-radius: 13px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: bold;
-    transition: .25s;
-}
-
-.cart-button:hover {
-    background: rgba(108,99,255,.2);
-    transform: translateY(-2px);
-}
-
-.cart-count {
-    min-width: 21px;
-    height: 21px;
-    padding: 0 6px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--primary);
-    border-radius: 50px;
-    font-size: 12px;
-}
-
-/* ================= HERO ================= */
-
-.hero {
-    max-width: 1200px;
-    margin: auto;
-    padding: 75px 20px 45px;
-    text-align: center;
-}
-
-.badge {
-    display: inline-block;
-    padding: 8px 14px;
-    border: 1px solid rgba(108,99,255,.3);
-    background: rgba(108,99,255,.1);
-    border-radius: 100px;
-    color: #b8b2ff;
-    font-size: 13px;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: clamp(38px, 8vw, 72px);
-    line-height: 1;
-    font-weight: 950;
-    letter-spacing: -3px;
-}
-
-.hero h1 span {
-    background: linear-gradient(90deg,#7e72ff,#00d4ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-    max-width: 650px;
-    margin: 22px auto 0;
-    color: var(--muted);
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-/* ================= CATEGORY ================= */
-
-.section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 25px 20px 70px;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 28px;
-}
-
-.section-title h2 {
-    font-size: 30px;
-    margin-bottom: 8px;
-}
-
-.section-title p {
-    color: var(--muted);
-}
-
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 18px;
-}
-
-.category-card {
-    position: relative;
-    padding: 30px 22px;
-    min-height: 180px;
-    border-radius: 22px;
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.025)
-    );
-    border: 1px solid var(--border);
-    overflow: hidden;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.category-card::before {
-    content: "";
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    right: -40px;
-    top: -40px;
-    border-radius: 50%;
-    background: var(--primary);
-    filter: blur(60px);
-    opacity: .25;
-}
-
-.category-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(108,99,255,.5);
-}
-
-.category-icon {
-    font-size: 40px;
-    margin-bottom: 16px;
-}
-
-.category-card h3 {
-    font-size: 19px;
-    margin-bottom: 8px;
-}
-
-.category-card p {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-.available {
-    color: var(--green) !important;
-    margin-top: 12px;
-    font-weight: bold;
-}
-
-.unavailable {
-    color: var(--yellow) !important;
-    margin-top: 12px;
-    font-weight: bold;
-}
-
-/* ================= PRODUCTS ================= */
-
-#productsSection {
-    display: none;
-}
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 20px;
-}
-
-.product-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 23px;
-    backdrop-filter: blur(15px);
-    transition: .3s;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(108,99,255,.4);
-}
-
-.product-top {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.product-icon {
-    width: 55px;
-    height: 55px;
-    border-radius: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
-    background: linear-gradient(135deg,#262e54,#151b31);
-    border: 1px solid var(--border);
-}
-
-.product-top h3 {
-    font-size: 21px;
-}
-
-.product-top p {
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: 4px;
-}
-
-.product-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.product-item {
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.025);
-    border-radius: 15px;
-    padding: 14px;
-}
-
-.item-info {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    align-items: center;
-}
-
-.item-name {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.item-note {
-    color: var(--muted);
-    font-size: 11px;
-    margin-top: 5px;
-    line-height: 1.5;
-}
-
-.price {
-    color: #8e86ff;
-    font-weight: 900;
-    white-space: nowrap;
-}
-
-.add-button {
-    width: 100%;
-    margin-top: 11px;
-    padding: 11px;
-    border: none;
-    border-radius: 11px;
-    background: linear-gradient(90deg,#665cff,#287cff);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.add-button:hover {
-    filter: brightness(1.15);
-    transform: scale(1.01);
-}
-
-/* ================= CART ================= */
-
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.7);
-    backdrop-filter: blur(8px);
-    z-index: 200;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-}
-
-.overlay.active {
-    display: flex;
-}
-
-.modal {
-    width: min(700px,100%);
-    max-height: 92vh;
-    overflow-y: auto;
-    background: #0d1427;
-    border: 1px solid var(--border);
-    border-radius: 25px;
-    box-shadow: 0 25px 100px rgba(0,0,0,.5);
-    animation: modalIn .25s ease;
-}
-
-@keyframes modalIn {
-    from {
-        transform: scale(.95);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-.modal-header {
-    padding: 20px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    background: #0d1427;
-    z-index: 2;
-}
-
-.modal-header h2 {
-    font-size: 20px;
-}
-
-.close {
-    width: 35px;
-    height: 35px;
-    border: none;
-    border-radius: 10px;
-    background: rgba(255,255,255,.07);
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.modal-body {
-    padding: 20px;
-}
-
-.empty {
-    text-align: center;
-    color: var(--muted);
-    padding: 40px 10px;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    align-items: center;
-    padding: 15px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.025);
-    border-radius: 15px;
-    margin-bottom: 10px;
-}
-
-.cart-name {
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.cart-price {
-    color: #8e86ff;
-    font-weight: bold;
-    font-size: 13px;
-    margin-top: 5px;
-}
-
-.remove {
-    background: rgba(255,85,116,.1);
-    color: var(--red);
-    border: 1px solid rgba(255,85,116,.2);
-    padding: 8px 10px;
-    border-radius: 9px;
-    cursor: pointer;
-}
-
-.total-box {
-    margin-top: 18px;
-    padding: 18px;
-    border-radius: 16px;
-    background: linear-gradient(
-        135deg,
-        rgba(108,99,255,.15),
-        rgba(0,212,255,.07)
-    );
-    border: 1px solid rgba(108,99,255,.2);
-}
-
-.total-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.total-row strong:last-child {
-    color: #a9a3ff;
-    font-size: 20px;
-}
-
-.checkout-btn {
-    width: 100%;
-    padding: 15px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 13px;
-    background: linear-gradient(90deg,#6c63ff,#008cff);
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* ================= CHECKOUT ================= */
-
-.form-group {
-    margin-bottom: 17px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 13px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.045);
-    color: white;
-    border-radius: 11px;
-    outline: none;
-    font-family: inherit;
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 75px;
-}
-
-.payment-options {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 10px;
-}
-
-.payment-option {
-    padding: 13px 8px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.03);
-    border-radius: 12px;
-    text-align: center;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 13px;
-}
-
-.payment-option.active {
-    border-color: #746cff;
-    background: rgba(108,99,255,.15);
-}
-
-.payment-details {
-    display: none;
-    margin-top: 12px;
-    padding: 15px;
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    background: rgba(255,255,255,.025);
-}
-
-.payment-details.active {
-    display: block;
-}
-
-.payment-number {
-    font-size: 20px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    margin: 7px 0;
-}
-
-.qris-box {
-    text-align: center;
-}
-
-.qris-box img {
-    width: min(280px,100%);
-    border-radius: 12px;
-    background: white;
-    padding: 8px;
-}
-
-.download-qris {
-    display: block;
-    width: min(280px,100%);
-    margin: 12px auto 0;
-    padding: 12px;
-    border-radius: 11px;
-    background: linear-gradient(90deg,#665cff,#287cff);
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 13px;
-}
-
-.upload-box {
-    border: 1px dashed rgba(255,255,255,.2);
-    padding: 16px;
-    border-radius: 13px;
-    text-align: center;
-}
-
-.upload-box input {
-    margin-top: 10px;
-    width: 100%;
-}
-
-.preview {
-    display: none;
-    margin: 15px auto 0;
-    max-width: 250px;
-    max-height: 300px;
-    border-radius: 12px;
-}
-
-.order-summary {
-    background: rgba(255,255,255,.03);
-    border: 1px solid var(--border);
-    padding: 15px;
-    border-radius: 14px;
-    margin-bottom: 20px;
-}
-
-.summary-line {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    padding: 7px 0;
-    color: #d9def1;
-    font-size: 13px;
-}
-
-.summary-line.total {
-    border-top: 1px solid var(--border);
-    margin-top: 7px;
-    padding-top: 13px;
-    font-weight: bold;
-    color: white;
-}
-
-.summary-line.total span:last-child {
-    color: #938cff;
-}
-
-/* ================= SUCCESS ================= */
-
-.success {
-    text-align: center;
-    padding: 30px 10px;
-}
-
-.success-icon {
-    font-size: 65px;
-    margin-bottom: 15px;
-}
-
-.success h2 {
-    margin-bottom: 10px;
-}
-
-.success p {
-    color: var(--muted);
-    line-height: 1.6;
-}
-
-.wa-btn {
-    display: block;
-    margin-top: 20px;
-    padding: 14px;
-    border-radius: 12px;
-    background: #20c76a;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* ================= TOAST ================= */
-
-.toast {
-    position: fixed;
-    left: 50%;
-    bottom: 25px;
-    transform: translate(-50%,120px);
-    padding: 13px 18px;
-    background: #161f38;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    z-index: 500;
-    transition: .3s;
-    font-size: 13px;
-    box-shadow: 0 10px 40px rgba(0,0,0,.4);
-}
-
-.toast.show {
-    transform: translate(-50%,0);
-}
-
-/* ================= FOOTER ================= */
-
-footer {
-    text-align: center;
-    padding: 35px 20px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 12px;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:800px) {
-    .category-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero {
-        padding-top: 55px;
-    }
-}
-
-@media(max-width:500px) {
-    .navbar {
-        padding: 14px;
-    }
-
-    .logo {
-        font-size: 20px;
-    }
-
-    .hero {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .section {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .payment-options {
-        grid-template-columns: 1fr;
-    }
-
-    .modal {
-        border-radius: 20px;
-    }
-}
+  :root{
+    --bg-deep:#140F1F;
+    --bg-panel:#1E1730;
+    --bg-panel-2:#261C3D;
+    --gold:#F2B155;
+    --gold-soft:#F8D8A0;
+    --violet:#8B5CF6;
+    --text:#F5EFE6;
+    --mute:#A79CC0;
+    --mute-dim:#7B7196;
+    --line:rgba(245,239,230,0.10);
+    --success:#3ED598;
+    --danger:#F2755C;
+    --radius:16px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:radial-gradient(1200px 700px at 85% -10%, rgba(139,92,246,0.20), transparent 60%),
+               radial-gradient(900px 600px at 10% 0%, rgba(242,177,85,0.12), transparent 55%),
+               var(--bg-deep);
+    color:var(--text);
+    font-family:'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+  input, textarea{font-family:inherit;}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 24px;}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    letter-spacing:.14em; text-transform:uppercase;
+    font-size:12px; color:var(--gold); font-weight:600;
+  }
+  .display{font-family:'Unbounded', sans-serif;}
+  .mono{font-family:'JetBrains Mono', monospace;}
+  .mute{color:var(--mute);}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:60;
+    background:rgba(20,15,31,0.72);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{display:flex; align-items:center; justify-content:space-between; height:72px;}
+  .logo{display:flex; align-items:baseline; gap:2px; font-family:'Unbounded'; font-weight:800; font-size:20px; letter-spacing:.01em;}
+  .logo .sann{color:var(--gold);}
+  .logo .premium{color:var(--text); font-weight:600; font-size:13px; letter-spacing:.18em; margin-left:6px; align-self:center; color:var(--mute);}
+  .cart-btn{
+    position:relative; display:flex; align-items:center; gap:8px;
+    background:var(--bg-panel-2); border:1px solid var(--line); color:var(--text);
+    padding:10px 16px; border-radius:999px; font-weight:600; font-size:14px;
+    transition:border-color .2s, transform .15s;
+  }
+  .cart-btn:hover{border-color:var(--gold); transform:translateY(-1px);}
+  .cart-badge{
+    position:absolute; top:-6px; right:-6px; background:var(--gold); color:#241704;
+    font-family:'JetBrains Mono'; font-size:11px; font-weight:700;
+    min-width:18px; height:18px; border-radius:999px; display:flex; align-items:center; justify-content:center;
+    padding:0 4px;
+  }
+  .cart-badge.hidden{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:150px 0 90px; position:relative;}
+  .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;}
+  .hero h1{font-size:44px; line-height:1.1; margin:16px 0 18px; font-weight:700;}
+  .hero h1 span{color:var(--gold);}
+  .hero p{font-size:16px; color:var(--mute); max-width:460px; line-height:1.7; margin-bottom:32px;}
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background:linear-gradient(135deg, var(--gold-soft), var(--gold));
+    color:#241704; font-weight:700; font-size:15px;
+    padding:15px 26px; border-radius:12px;
+    box-shadow:0 12px 28px -10px rgba(242,177,85,0.55);
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 16px 32px -8px rgba(242,177,85,0.65);}
+
+  /* signature VIP card */
+  .card-stage{perspective:1000px;}
+  .vip-card{
+    position:relative; aspect-ratio:1.586/1; border-radius:22px; padding:26px;
+    background:linear-gradient(135deg,#3E2E63 0%, #6C3F86 45%, #C77F4E 100%);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.15);
+    color:#fff; overflow:hidden;
+    transform:rotateX(6deg) rotateY(-10deg);
+    transition:transform .2s ease-out;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .vip-card::before{
+    content:''; position:absolute; inset:-40%;
+    background:linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%);
+    animation:shimmer 4.5s ease-in-out infinite;
+  }
+  @keyframes shimmer{
+    0%{transform:translateX(-30%) translateY(-10%);}
+    50%{transform:translateX(30%) translateY(10%);}
+    100%{transform:translateX(-30%) translateY(-10%);}
+  }
+  .vip-top{display:flex; justify-content:space-between; align-items:flex-start; position:relative; z-index:1;}
+  .vip-chip{width:42px; height:32px; border-radius:6px; background:linear-gradient(135deg,#F7E7B8,#D8AE5E); box-shadow:inset 0 0 0 1px rgba(0,0,0,0.15);}
+  .vip-label{font-family:'JetBrains Mono'; font-size:11px; letter-spacing:.12em; text-transform:uppercase; opacity:.85;}
+  .vip-mid{position:relative; z-index:1;}
+  .vip-mid .amount{font-family:'Unbounded'; font-weight:800; font-size:26px; letter-spacing:.02em;}
+  .vip-bottom{position:relative; z-index:1; display:flex; justify-content:space-between; align-items:flex-end;}
+  .vip-num{font-family:'JetBrains Mono'; letter-spacing:.15em; font-size:15px; opacity:.9;}
+  .vip-tag{font-size:11px; letter-spacing:.08em; opacity:.8; text-transform:uppercase;}
+
+  /* ---------- SECTION HEADS ---------- */
+  section{padding:70px 0;}
+  .sec-head{text-align:center; max-width:560px; margin:0 auto 44px;}
+  .sec-head h2{font-size:30px; margin:12px 0 10px;}
+  .sec-head p{color:var(--mute); font-size:15px; line-height:1.6;}
+
+  /* ---------- KATEGORI ---------- */
+  .kategori-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .kat-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:var(--radius);
+    padding:28px 24px; text-align:left; position:relative; transition:transform .18s, border-color .18s;
+    display:flex; flex-direction:column; gap:14px; min-height:220px; width:100%;
+  }
+  .kat-card.active{cursor:pointer;}
+  .kat-card.active:hover{transform:translateY(-6px); border-color:var(--gold);}
+  .kat-card.locked{opacity:.6; cursor:not-allowed;}
+  .kat-card.locked:active{animation:shake .3s;}
+  @keyframes shake{
+    0%,100%{transform:translateX(0);} 25%{transform:translateX(-4px);} 75%{transform:translateX(4px);}
+  }
+  .kat-icon{
+    width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    background:var(--bg-panel-2); color:var(--gold);
+  }
+  .kat-card h3{font-size:18px; font-weight:700;}
+  .kat-card p{font-size:13.5px; color:var(--mute); line-height:1.5; flex:1;}
+  .badge{
+    align-self:flex-start; font-family:'JetBrains Mono'; font-size:11px; letter-spacing:.06em;
+    padding:5px 10px; border-radius:999px; font-weight:600;
+  }
+  .badge.ready{background:rgba(62,213,152,0.15); color:var(--success);}
+  .badge.soon{background:rgba(167,146,192,0.15); color:var(--mute);}
+
+  /* ---------- PRODUK ---------- */
+  .tabs{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:36px;}
+  .tab-btn{
+    background:var(--bg-panel); border:1px solid var(--line); color:var(--mute);
+    padding:10px 20px; border-radius:999px; font-weight:600; font-size:14px; transition:all .15s;
+  }
+  .tab-btn.active{background:var(--gold); color:#241704; border-color:var(--gold);}
+  .tab-btn:hover:not(.active){border-color:var(--gold); color:var(--text);}
+
+  .brand-panel{display:none;}
+  .brand-panel.active{display:block; animation:fadeIn .25s ease;}
+  @keyframes fadeIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  .item-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  .item-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:14px; padding:20px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .item-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
+  .item-name{font-weight:700; font-size:15.5px;}
+  .item-duration{font-family:'JetBrains Mono'; font-size:12px; color:var(--mute); margin-top:2px;}
+  .item-note{font-size:12.5px; color:var(--mute-dim); font-style:italic; line-height:1.5;}
+  .item-bottom{display:flex; align-items:center; justify-content:space-between; margin-top:auto;}
+  .item-price{font-family:'JetBrains Mono'; font-weight:700; color:var(--gold); font-size:17px;}
+  .add-btn{
+    background:var(--bg-panel-2); color:var(--text); border:1px solid var(--line);
+    padding:8px 14px; border-radius:10px; font-weight:600; font-size:13px; display:flex; align-items:center; gap:6px;
+    transition:background .15s, border-color .15s;
+  }
+  .add-btn:hover{background:var(--gold); color:#241704; border-color:var(--gold);}
+
+  /* ---------- FLOATING CART BUTTON ---------- */
+  .fab-cart{
+    position:fixed; right:24px; bottom:24px; z-index:55;
+    background:var(--gold); color:#241704; border-radius:999px;
+    width:58px; height:58px; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 14px 30px -8px rgba(242,177,85,0.6);
+    transition:transform .15s;
+  }
+  .fab-cart:hover{transform:scale(1.06);}
+  .fab-cart .cart-badge{top:-4px; right:-4px;}
+
+  /* ---------- DRAWER ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(10,7,16,0.6); backdrop-filter:blur(2px);
+    opacity:0; pointer-events:none; transition:opacity .2s; z-index:70;
+  }
+  .overlay.show{opacity:1; pointer-events:auto;}
+  .drawer{
+    position:fixed; top:0; right:0; bottom:0; width:400px; max-width:92vw;
+    background:var(--bg-panel); border-left:1px solid var(--line);
+    transform:translateX(100%); transition:transform .28s ease; z-index:75;
+    display:flex; flex-direction:column;
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{display:flex; justify-content:space-between; align-items:center; padding:22px 22px 16px; border-bottom:1px solid var(--line);}
+  .drawer-head h3{font-family:'Unbounded'; font-size:17px;}
+  .icon-btn{background:transparent; color:var(--mute); padding:6px; border-radius:8px;}
+  .icon-btn:hover{color:var(--text); background:var(--bg-panel-2);}
+  .drawer-body{flex:1; overflow-y:auto; padding:16px 22px;}
+  .empty-cart{text-align:center; color:var(--mute); padding:60px 10px; font-size:14px;}
+  .cart-row{display:flex; gap:12px; padding:14px 0; border-bottom:1px dashed var(--line);}
+  .cart-row-info{flex:1;}
+  .cart-row-info .n{font-weight:700; font-size:14px;}
+  .cart-row-info .d{font-family:'JetBrains Mono'; font-size:11.5px; color:var(--mute); margin-top:2px;}
+  .qty-ctrl{display:flex; align-items:center; gap:8px; margin-top:8px;}
+  .qty-ctrl button{
+    width:24px; height:24px; border-radius:6px; background:var(--bg-panel-2); color:var(--text);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .qty-ctrl button:hover{background:var(--gold); color:#241704;}
+  .qty-ctrl .q{font-family:'JetBrains Mono'; font-size:13px; min-width:16px; text-align:center;}
+  .cart-row-right{display:flex; flex-direction:column; align-items:flex-end; justify-content:space-between;}
+  .cart-row-right .sub{font-family:'JetBrains Mono'; font-weight:700; font-size:13.5px; color:var(--gold);}
+  .remove-btn{color:var(--danger); background:transparent; padding:4px;}
+  .drawer-foot{padding:18px 22px 24px; border-top:1px solid var(--line);}
+  .total-row{display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;}
+  .total-row .label{color:var(--mute); font-size:14px;}
+  .total-row .amt{font-family:'JetBrains Mono'; font-weight:800; font-size:20px; color:var(--gold);}
+  .btn-checkout{
+    width:100%; background:var(--gold); color:#241704; padding:15px; border-radius:12px; font-weight:700; font-size:15px;
+  }
+  .btn-checkout:disabled{background:var(--bg-panel-2); color:var(--mute-dim); cursor:not-allowed;}
+
+  /* ---------- MODAL CHECKOUT ---------- */
+  .modal{
+    position:fixed; inset:0; z-index:80; display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none; transition:opacity .2s; padding:20px;
+  }
+  .modal.show{opacity:1; pointer-events:auto;}
+  .modal-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:20px;
+    width:100%; max-width:480px; max-height:88vh; overflow-y:auto; padding:26px;
+  }
+  .modal-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:18px;}
+  .modal-head h3{font-family:'Unbounded'; font-size:18px;}
+  .receipt{background:var(--bg-panel-2); border-radius:12px; padding:16px; margin-bottom:22px;}
+  .receipt-row{display:flex; justify-content:space-between; font-size:13px; padding:6px 0; font-family:'JetBrains Mono'; color:var(--mute);}
+  .receipt-row span:last-child{color:var(--text);}
+  .receipt-divider{border-top:1px dashed var(--line); margin:8px 0;}
+  .receipt-total{display:flex; justify-content:space-between; font-weight:800; font-size:16px; margin-top:6px;}
+  .receipt-total span:last-child{color:var(--gold); font-family:'JetBrains Mono';}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:13px; font-weight:600; margin-bottom:7px; color:var(--mute);}
+  .field input[type=text], .field input[type=tel], .field textarea{
+    width:100%; background:var(--bg-deep); border:1px solid var(--line); color:var(--text);
+    padding:12px 14px; border-radius:10px; font-size:14px;
+  }
+  .field textarea{resize:vertical; min-height:64px;}
+  .pay-options{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:14px;}
+  .pay-opt{
+    background:var(--bg-deep); border:1px solid var(--line); color:var(--mute);
+    padding:12px 8px; border-radius:10px; font-weight:700; font-size:13px; text-align:center;
+  }
+  .pay-opt.active{border-color:var(--gold); color:var(--gold); background:rgba(242,177,85,0.08);}
+  .pay-detail{background:var(--bg-deep); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:20px;}
+  .num-row{display:flex; justify-content:space-between; align-items:center; gap:10px;}
+  .num-row .num{font-family:'JetBrains Mono'; font-size:16px; font-weight:700;}
+  .copy-btn{
+    background:var(--bg-panel-2); color:var(--text); padding:8px 12px; border-radius:8px; font-size:12.5px; font-weight:600;
+    display:flex; align-items:center; gap:6px; white-space:nowrap;
+  }
+  .copy-btn:hover{background:var(--gold); color:#241704;}
+  .qris-box{text-align:center;}
+  .qris-box svg{margin:0 auto 12px; border-radius:10px; border:1px solid var(--line);}
+  .download-btn{
+    background:var(--bg-panel-2); color:var(--text); padding:9px 16px; border-radius:9px; font-size:13px; font-weight:600;
+    display:inline-flex; align-items:center; gap:7px;
+  }
+  .download-btn:hover{background:var(--gold); color:#241704;}
+  .file-drop{
+    border:1.5px dashed var(--line); border-radius:12px; padding:18px; text-align:center; cursor:pointer;
+    color:var(--mute); font-size:13px; transition:border-color .15s;
+  }
+  .file-drop:hover{border-color:var(--gold);}
+  .file-drop.has-file{color:var(--success); border-color:var(--success);}
+  .hint{font-size:12px; color:var(--mute-dim); margin-top:8px; line-height:1.6;}
+  .btn-wa{
+    width:100%; background:var(--success); color:#052E1D; padding:15px; border-radius:12px;
+    font-weight:800; font-size:15px; margin-top:6px; display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .btn-wa:hover{filter:brightness(1.08);}
+
+  /* ---------- TOAST ---------- */
+  .toast{
+    position:fixed; left:50%; bottom:28px; transform:translate(-50%, 20px);
+    background:#241704; color:var(--gold-soft); font-weight:700; font-size:13.5px;
+    padding:12px 20px; border-radius:10px; z-index:200; opacity:0; transition:all .25s;
+    box-shadow:0 12px 24px -8px rgba(0,0,0,0.5); pointer-events:none;
+  }
+  .toast.show{opacity:1; transform:translate(-50%, 0);}
+
+  footer{padding:40px 0; border-top:1px solid var(--line); text-align:center; color:var(--mute-dim); font-size:13px;}
+  footer strong{color:var(--mute);}
+
+  @media (max-width:860px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+    .card-stage{order:-1; max-width:340px; margin:0 auto;}
+    .kategori-grid{grid-template-columns:1fr;}
+    .item-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:34px;}
+    .logo .premium{display:none;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
 </style>
 </head>
-
 <body>
 
-<!-- ================= HEADER ================= -->
-
 <header>
-    <div class="navbar">
-        <div class="logo">
-            SANN<span>PREMIUM</span>
-        </div>
-
-        <button class="cart-button" onclick="openCart()">
-            🛒 Keranjang
-            <span class="cart-count" id="cartCount">0</span>
-        </button>
-    </div>
+  <div class="wrap">
+    <div class="logo"><span class="sann">SANN</span><span style="color:var(--text)">PREMIUM</span><span class="premium">DIGITAL STORE</span></div>
+    <button class="cart-btn" onclick="openDrawer()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      Keranjang
+      <span class="cart-badge hidden" id="cartBadgeHeader">0</span>
+    </button>
+  </div>
 </header>
 
-
-<!-- ================= HERO ================= -->
-
 <section class="hero">
-
-    <div class="badge">
-        ✨ PREMIUM DIGITAL STORE
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Akses Premium • Aman • Serba Ada</div>
+      <h1 class="display">Satu toko buat <span>semua kebutuhan digital</span> kamu.</h1>
+      <p>SANNPREMIUM nyediain akun sharing & pribadi, aplikasi premium, sampai top up game — harga bersahabat, proses cepat, langsung diproses lewat WhatsApp.</p>
+      <a href="#kategori" class="btn-primary">
+        Lihat Produk
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
-
-    <h1>
-        Upgrade Your<br>
-        <span>Digital Life.</span>
-    </h1>
-
-    <p>
-        Nikmati berbagai layanan premium dengan harga terjangkau.
-        Pilih kebutuhanmu dan lakukan pemesanan dengan mudah.
-    </p>
-
+    <div class="card-stage">
+      <div class="vip-card" id="vipCard">
+        <div class="vip-top">
+          <div>
+            <div class="vip-label">Member Card</div>
+            <div class="vip-label" style="opacity:.6; margin-top:2px;">SANNPREMIUM</div>
+          </div>
+          <div class="vip-chip"></div>
+        </div>
+        <div class="vip-mid">
+          <div class="amount display">AKSES PENUH</div>
+        </div>
+        <div class="vip-bottom">
+          <div class="vip-num">•••• •••• SANN</div>
+          <div class="vip-tag">Aktif Selamanya*</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<!-- ================= CATEGORY ================= -->
-
-<section class="section">
-
-    <div class="section-title">
-        <h2>Pilih Kategori</h2>
-        <p>Mau cari apa hari ini?</p>
+<section id="kategori">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Pilih Kategori</div>
+      <h2 class="display">Mau belanja apa hari ini?</h2>
+      <p>Klik salah satu kategori di bawah untuk lihat daftar produk & harganya.</p>
     </div>
+    <div class="kategori-grid">
+      <button class="kat-card locked" onclick="showToast('Produk belum tersedia, stay tuned ya! 👀')">
+        <div class="kat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <span class="badge soon">Segera Hadir</span>
+        <h3>Kebutuhan Sosmed</h3>
+        <p>Followers, likes, views, dan jasa sosmed lainnya. Produk belum tersedia saat ini.</p>
+      </button>
 
-    <div class="category-grid">
+      <button class="kat-card active" onclick="document.getElementById('produk').scrollIntoView({behavior:'smooth'})">
+        <div class="kat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <span class="badge ready">Tersedia</span>
+        <h3>Aplikasi Premium</h3>
+        <p>Netflix, Canva, YouTube Premium, Alight Motion — sharing & privat, harga mulai Rp2.000.</p>
+      </button>
 
-        <div class="category-card"
-             onclick="showUnavailable('Kebutuhan Sosmed')">
-
-            <div class="category-icon">📱</div>
-
-            <h3>Kebutuhan Sosmed</h3>
-
-            <p>
-                Berbagai kebutuhan untuk sosial media.
-            </p>
-
-            <p class="unavailable">
-                ● Belum Tersedia
-            </p>
-
-        </div>
-
-
-        <div class="category-card"
-             onclick="showProducts()">
-
-            <div class="category-icon">💎</div>
-
-            <h3>Aplikasi Premium</h3>
-
-            <p>
-                Netflix, Canva, Alight Motion,
-                YouTube dan lainnya.
-            </p>
-
-            <p class="available">
-                ● Tersedia
-            </p>
-
-        </div>
-
-
-        <div class="category-card"
-             onclick="showUnavailable('Top Up Game')">
-
-            <div class="category-icon">🎮</div>
-
-            <h3>Top Up Game</h3>
-
-            <p>
-                Top up berbagai game favoritmu.
-            </p>
-
-            <p class="unavailable">
-                ● Belum Tersedia
-            </p>
-
-        </div>
-
+      <button class="kat-card locked" onclick="showToast('Produk belum tersedia, stay tuned ya! 👀')">
+        <div class="kat-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="8" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="6" cy="12" r="0" /><path d="M15 10h.01M18 10h.01M16.5 11.5h.01" /></svg></div>
+        <span class="badge soon">Segera Hadir</span>
+        <h3>Top Up Game</h3>
+        <p>Diamond, UC, dan voucher game favorit kamu. Produk belum tersedia saat ini.</p>
+      </button>
     </div>
-
+  </div>
 </section>
 
-
-<!-- ================= PRODUCTS ================= -->
-
-<section class="section" id="productsSection">
-
-    <div class="section-title">
-        <h2>💎 Aplikasi Premium</h2>
-        <p>Pilih produk yang kamu butuhkan</p>
+<section id="produk">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Aplikasi Premium</div>
+      <h2 class="display">Pilih aplikasi, pilih durasi, masukin keranjang.</h2>
+      <p>Semua harga sudah final, tinggal checkout lewat WhatsApp.</p>
     </div>
 
-
-    <div class="products-grid">
-
-
-        <!-- NETFLIX -->
-
-        <div class="product-card">
-
-            <div class="product-top">
-
-                <div class="product-icon">🎬</div>
-
-                <div>
-                    <h3>Netflix</h3>
-                    <p>Premium Streaming</p>
-                </div>
-
-            </div>
-
-
-            <div class="product-list">
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div>
-                            <div class="item-name">
-                                Private Mobile 1P1U
-                            </div>
-
-                            <div class="item-note">
-                                1 Bulan
-                            </div>
-                        </div>
-
-                        <div class="price">
-                            Rp 20.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Netflix - Private Mobile 1P1U',
-                            20000,
-                            '1 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div>
-                            <div class="item-name">
-                                Sharing 1P1U
-                            </div>
-
-                            <div class="item-note">
-                                1 Bulan • Max login 1 device
-                            </div>
-                        </div>
-
-                        <div class="price">
-                            Rp 18.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Netflix - Sharing 1P1U',
-                            18000,
-                            '1 Bulan • Max login 1 device'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div>
-                            <div class="item-name">
-                                Sharing 1P2U
-                            </div>
-
-                            <div class="item-note">
-                                1 Bulan • Sering limit
-                            </div>
-                        </div>
-
-                        <div class="price">
-                            Rp 15.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Netflix - Sharing 1P2U',
-                            15000,
-                            '1 Bulan • Sering limit'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div>
-                            <div class="item-name">
-                                Semi Privat
-                            </div>
-
-                            <div class="item-note">
-                                1 Bulan • Gak bisa nonton bareng
-                            </div>
-                        </div>
-
-                        <div class="price">
-                            Rp 25.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Netflix - Semi Privat',
-                            25000,
-                            '1 Bulan • Gak bisa nonton bareng'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div>
-                            <div class="item-name">
-                                Netflix Sultan Vip
-                            </div>
-
-                            <div class="item-note">
-                                1 Bulan • 1 profil • Login 2 device • Bebas ubah nama/foto profil
-                            </div>
-                        </div>
-
-                        <div class="price">
-                            Rp 36.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Netflix Sultan Vip',
-                            36000,
-                            '1 Bulan • 1 profil • Login 2 device • Bebas ubah nama/foto profil'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-            </div>
-        </div>
-
-
-        <!-- CANVA -->
-
-        <div class="product-card">
-
-            <div class="product-top">
-
-                <div class="product-icon">🎨</div>
-
-                <div>
-                    <h3>Canva</h3>
-                    <p>Design Premium</p>
-                </div>
-
-            </div>
-
-
-            <div class="product-list">
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-                        <div class="item-name">
-                            Member / Designer • 1 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 2.000
-                        </div>
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Canva Member / Designer',
-                            2000,
-                            '1 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-                        <div class="item-name">
-                            Member / Designer • 3 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 5.300
-                        </div>
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Canva Member / Designer',
-                            5300,
-                            '3 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-                        <div class="item-name">
-                            Member / Designer • 4 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 7.600
-                        </div>
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Canva Member / Designer',
-                            7600,
-                            '4 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-                        <div class="item-name">
-                            Member / Designer • 6 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 8.500
-                        </div>
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Canva Member / Designer',
-                            8500,
-                            '6 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-                        <div class="item-name">
-                            Member / Designer • 1 Tahun
-                        </div>
-
-                        <div class="price">
-                            Rp 9.900
-                        </div>
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Canva Member / Designer',
-                            9900,
-                            '1 Tahun'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div>
-                            <div class="item-name">
-                                Head Owner Fullgaransi
-                            </div>
-
-                            <div class="item-note">
-                                1 Bulan • Bisa invite hingga 100 anggota
-                            </div>
-                        </div>
-
-                        <div class="price">
-                            Rp 13.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Canva Head Owner Fullgaransi',
-                            13000,
-                            '1 Bulan • Bisa invite hingga 100 anggota'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-            </div>
-        </div>
-
-
-        <!-- ALIGHT MOTION -->
-
-        <div class="product-card">
-
-            <div class="product-top">
-
-                <div class="product-icon">✨</div>
-
-                <div>
-                    <h3>Alight Motion</h3>
-                    <p>Video Editing Premium</p>
-                </div>
-
-            </div>
-
-
-            <div class="product-list">
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div>
-                            <div class="item-name">
-                                Alight Motion Premium
-                            </div>
-
-                            <div class="item-note">
-                                1 Tahun
-                            </div>
-                        </div>
-
-                        <div class="price">
-                            Rp 5.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'Alight Motion Premium',
-                            5000,
-                            '1 Tahun'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- YOUTUBE -->
-
-        <div class="product-card">
-
-            <div class="product-top">
-
-                <div class="product-icon">▶️</div>
-
-                <div>
-                    <h3>YouTube</h3>
-                    <p>Premium & Family</p>
-                </div>
-
-            </div>
-
-
-            <div class="product-list">
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div>
-                            <div class="item-name">
-                                YouTube Famhead
-                            </div>
-
-                            <div class="item-note">
-                                1 Bulan
-                            </div>
-                        </div>
-
-                        <div class="price">
-                            Rp 12.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'YouTube Famhead',
-                            12000,
-                            '1 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div class="item-name">
-                            YouTube Premium • 1 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 5.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'YouTube Premium',
-                            5000,
-                            '1 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div class="item-name">
-                            YouTube Premium • 2 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 8.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'YouTube Premium',
-                            8000,
-                            '2 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div class="item-name">
-                            YouTube Premium • 3 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 12.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'YouTube Premium',
-                            12000,
-                            '3 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div class="item-name">
-                            YouTube Premium • 4 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 20.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'YouTube Premium',
-                            20000,
-                            '4 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div class="item-name">
-                            YouTube Premium • 6 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 35.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'YouTube Premium',
-                            35000,
-                            '6 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div class="item-name">
-                            YouTube Premium • 9 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 45.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'YouTube Premium',
-                            45000,
-                            '9 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-                <div class="product-item">
-
-                    <div class="item-info">
-
-                        <div class="item-name">
-                            YouTube Premium • 12 Bulan
-                        </div>
-
-                        <div class="price">
-                            Rp 60.000
-                        </div>
-
-                    </div>
-
-                    <button class="add-button"
-                        onclick="addToCart(
-                            'YouTube Premium',
-                            60000,
-                            '12 Bulan'
-                        )">
-                        + Tambah ke Keranjang
-                    </button>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
+    <div class="tabs" id="tabs"></div>
+    <div id="brandPanels"></div>
+  </div>
 </section>
 
+<button class="fab-cart" onclick="openDrawer()">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#241704" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+  <span class="cart-badge hidden" id="cartBadgeFab">0</span>
+</button>
 
 <footer>
-    © 2026 SANNPREMIUM • Premium Digital Store
+  <div class="wrap">
+    <p><strong>SANNPREMIUM</strong> — Toko akun & aplikasi premium terpercaya.</p>
+    <p style="margin-top:6px;">Pemesanan & konfirmasi lewat WhatsApp 0813-9880-3306</p>
+  </div>
 </footer>
 
+<!-- Overlay -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
 
-<!-- ================= CART MODAL ================= -->
-
-<div class="overlay" id="cartModal">
-
-    <div class="modal">
-
-        <div class="modal-header">
-
-            <h2>🛒 Keranjang Kamu</h2>
-
-            <button class="close" onclick="closeCart()">
-                ×
-            </button>
-
-        </div>
-
-        <div class="modal-body">
-
-            <div id="cartContent"></div>
-
-        </div>
-
+<!-- Drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3 class="display">Keranjang Kamu</h3>
+    <button class="icon-btn" onclick="closeAll()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot">
+    <div class="total-row">
+      <span class="label">Total Belanja</span>
+      <span class="amt mono" id="drawerTotal">Rp0</span>
     </div>
-
+    <button class="btn-checkout" id="checkoutBtn" disabled onclick="openCheckout()">Checkout Sekarang</button>
+  </div>
 </div>
 
-
-<!-- ================= CHECKOUT MODAL ================= -->
-
-<div class="overlay" id="checkoutModal">
-
-    <div class="modal">
-
-        <div class="modal-header">
-
-            <h2>🧾 Checkout</h2>
-
-            <button class="close" onclick="closeCheckout()">
-                ×
-            </button>
-
-        </div>
-
-        <div class="modal-body">
-
-
-            <div class="order-summary">
-
-                <strong>Detail Pesanan</strong>
-
-                <div id="checkoutSummary"></div>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Nama Pembeli</label>
-
-                <input
-                    type="text"
-                    id="buyerName"
-                    placeholder="Masukkan nama kamu"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Catatan Pesanan (opsional)</label>
-
-                <textarea
-                    id="buyerNote"
-                    placeholder="Contoh: kirim ke akun email saya..."
-                ></textarea>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Pilih Pembayaran</label>
-
-                <div class="payment-options">
-
-                    <div
-                        class="payment-option"
-                        onclick="selectPayment('OVO',this)"
-                    >
-                        🟣 OVO
-                    </div>
-
-                    <div
-                        class="payment-option"
-                        onclick="selectPayment('GOPAY',this)"
-                    >
-                        🔵 GoPay
-                    </div>
-
-                    <div
-                        class="payment-option"
-                        onclick="selectPayment('QRIS',this)"
-                    >
-                        📲 QRIS
-                    </div>
-
-                </div>
-
-
-                <div class="payment-details" id="OVO">
-
-                    <div>
-                        Nomor OVO
-                    </div>
-
-                    <div class="payment-number">
-                        081398803306
-                    </div>
-
-                    <small style="color:#9ca8c7;">
-                        Silakan transfer sesuai total pembayaran.
-                    </small>
-
-                </div>
-
-
-                <div class="payment-details" id="GOPAY">
-
-                    <div>
-                        Nomor GoPay
-                    </div>
-
-                    <div class="payment-number">
-                        081398803306
-                    </div>
-
-                    <small style="color:#9ca8c7;">
-                        Silakan transfer sesuai total pembayaran.
-                    </small>
-
-                </div>
-
-
-                <div class="payment-details" id="QRIS">
-
-                    <div class="qris-box">
-
-                        <p style="margin-bottom:12px;">
-                            Scan QRIS berikut
-                        </p>
-
-                        <img
-                            src="qris.png"
-                            alt="QRIS SANNPREMIUM"
-                        >
-
-                        <a
-                            href="qris.png"
-                            download="QRIS-SANNPREMIUM.png"
-                            class="download-qris"
-                        >
-                            📥 Unduh Gambar QRIS
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>
-                    Bukti Transfer
-                </label>
-
-                <div class="upload-box">
-
-                    <div>
-                        📤 Upload bukti pembayaran
-                    </div>
-
-                    <small style="color:#9ca8c7;">
-                        Pilih screenshot/foto bukti transfer.
-                    </small>
-
-                    <input
-                        type="file"
-                        id="proofFile"
-                        accept="image/*"
-                        onchange="previewProof(event)"
-                    >
-
-                    <img
-                        id="proofPreview"
-                        class="preview"
-                        alt="Preview bukti pembayaran"
-                    >
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="checkout-btn"
-                onclick="sendOrder()"
-            >
-                📱 Kirim Pesanan ke WhatsApp
-            </button>
-
-
-        </div>
-
+<!-- Checkout Modal -->
+<div class="modal" id="checkoutModal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h3>Checkout Pesanan</h3>
+      <button class="icon-btn" onclick="closeAll()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
     </div>
 
-</div>
+    <div class="receipt" id="receiptBox"></div>
 
-
-<!-- ================= SUCCESS MODAL ================= -->
-
-<div class="overlay" id="successModal">
-
-    <div class="modal">
-
-        <div class="modal-body">
-
-            <div class="success">
-
-                <div class="success-icon">
-                    ✅
-                </div>
-
-                <h2>Pesanan Siap Dikirim!</h2>
-
-                <p>
-                    Detail pesanan sudah dibuat.
-                    WhatsApp akan dibuka dengan
-                    informasi pembelian kamu.
-                </p>
-
-                <a
-                    id="waButton"
-                    class="wa-btn"
-                    target="_blank"
-                >
-                    💬 Buka WhatsApp
-                </a>
-
-                <button
-                    class="checkout-btn"
-                    onclick="closeSuccess()"
-                >
-                    Tutup
-                </button>
-
-            </div>
-
-        </div>
-
+    <div class="field">
+      <label>Nama Kamu</label>
+      <input type="text" id="buyerName" placeholder="Contoh: Sanny">
+    </div>
+    <div class="field">
+      <label>Nomor WhatsApp Kamu (biar gampang dihubungi)</label>
+      <input type="tel" id="buyerPhone" placeholder="Contoh: 08123456789">
+    </div>
+    <div class="field">
+      <label>Catatan (opsional)</label>
+      <textarea id="buyerNote" placeholder="Contoh: request nama profil, email tujuan, dll."></textarea>
     </div>
 
+    <div class="field">
+      <label>Metode Pembayaran</label>
+      <div class="pay-options">
+        <button class="pay-opt" data-pay="OVO" onclick="selectPayment('OVO')">OVO</button>
+        <button class="pay-opt" data-pay="GoPay" onclick="selectPayment('GoPay')">GoPay</button>
+        <button class="pay-opt" data-pay="QRIS" onclick="selectPayment('QRIS')">QRIS</button>
+      </div>
+      <div id="payDetail"></div>
+    </div>
+
+    <div class="field">
+      <label>Unggah Bukti Transfer</label>
+      <div class="file-drop" id="fileDrop" onclick="document.getElementById('fileInput').click()">
+        📎 Klik untuk pilih foto bukti transfer
+      </div>
+      <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleFile(this)">
+      <p class="hint">Karena WhatsApp Web/App gak bisa nerima lampiran otomatis lewat link, foto bukti transfer ini perlu kamu kirim manual di chat WhatsApp setelah pesan pesanan terkirim ya. Tenang, filenya udah kepilih, tinggal lampirin aja 😉</p>
+    </div>
+
+    <button class="btn-wa" onclick="sendToWhatsapp()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.3-1.93 1.36-.5.06-1.02.09-3.28-.7-2.77-1.06-4.55-3.86-4.69-4.04-.14-.18-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.29.24-.28.53-.35.71-.35h.5c.16 0 .38-.03.58.45.24.58.81 2 .88 2.15.07.14.11.32.02.5-.09.18-.14.29-.28.44-.14.16-.29.35-.42.47-.14.13-.28.28-.12.55.16.28.71 1.18 1.53 1.91 1.05.94 1.94 1.24 2.21 1.38.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.61-.14.25.09 1.58.75 1.85.88.28.14.46.2.53.32.07.12.07.68-.17 1.36z"/></svg>
+      Kirim Pesanan via WhatsApp
+    </button>
+  </div>
 </div>
-
-
-<!-- ================= TOAST ================= -->
 
 <div class="toast" id="toast"></div>
 
-
 <script>
+  /* ------------------ DATA PRODUK ------------------ */
+  const PRODUCTS = {
+    netflix: { label:'Netflix', items:[
+      {id:'nf1', name:'Private Mobile 1P1U', duration:'1 Bulan', price:20000, note:null},
+      {id:'nf2', name:'Sharing 1P1U', duration:'1 Bulan', price:18000, note:'Max login 1 device'},
+      {id:'nf3', name:'Sharing 1P2U', duration:'1 Bulan', price:15000, note:'Sering limit'},
+      {id:'nf4', name:'Semi Privat', duration:'1 Bulan', price:25000, note:'Gak bisa nonton bareng'},
+      {id:'nf5', name:'Sultan VIP', duration:'1 Bulan', price:36000, note:'Jatah 1 profil • Login 2 device • Bebas ubah nama/foto profil'},
+    ]},
+    canva: { label:'Canva', items:[
+      {id:'cv1', name:'Member / Designer', duration:'1 Bulan', price:2000, note:null},
+      {id:'cv2', name:'Member / Designer', duration:'3 Bulan', price:5300, note:null},
+      {id:'cv3', name:'Member / Designer', duration:'4 Bulan', price:7600, note:null},
+      {id:'cv4', name:'Member / Designer', duration:'6 Bulan', price:8500, note:null},
+      {id:'cv5', name:'Member / Designer', duration:'1 Tahun', price:9900, note:null},
+      {id:'cv6', name:'Head Owner Full Garansi', duration:'1 Bulan', price:13000, note:'Bisa invite hingga 100 anggota'},
+    ]},
+    alight: { label:'Alight Motion', items:[
+      {id:'am1', name:'Alight Motion Pro', duration:'1 Tahun', price:5000, note:null},
+    ]},
+    youtube: { label:'YouTube', items:[
+      {id:'yt1', name:'YouTube Famhead', duration:'1 Bulan', price:12000, note:null},
+      {id:'yt2', name:'YouTube Premium', duration:'1 Bulan', price:5000, note:null},
+      {id:'yt3', name:'YouTube Premium', duration:'2 Bulan', price:8000, note:null},
+      {id:'yt4', name:'YouTube Premium', duration:'3 Bulan', price:12000, note:null},
+      {id:'yt5', name:'YouTube Premium', duration:'4 Bulan', price:20000, note:null},
+      {id:'yt6', name:'YouTube Premium', duration:'6 Bulan', price:35000, note:null},
+      {id:'yt7', name:'YouTube Premium', duration:'9 Bulan', price:45000, note:null},
+      {id:'yt8', name:'YouTube Premium', duration:'12 Bulan', price:60000, note:null},
+    ]},
+  };
 
-/* ==================================================
-   CONFIG
-================================================== */
+  const WA_NUMBER = '6281398803306';
+  const OVO_NUMBER = '081398803306';
+  const GOPAY_NUMBER = '081398803306';
 
-const WA_NUMBER = "6281398803306";
+  let cart = [];
+  let selectedPayment = null;
+  let uploadedFileName = null;
 
+  function toRupiah(n){ return 'Rp' + n.toLocaleString('id-ID'); }
 
-/* ==================================================
-   CART
-================================================== */
+  /* ------------------ RENDER TABS & PRODUK ------------------ */
+  function initProducts(){
+    const tabsEl = document.getElementById('tabs');
+    const panelsEl = document.getElementById('brandPanels');
+    const keys = Object.keys(PRODUCTS);
+    keys.forEach((key, idx) => {
+      const tabBtn = document.createElement('button');
+      tabBtn.className = 'tab-btn' + (idx===0 ? ' active' : '');
+      tabBtn.textContent = PRODUCTS[key].label;
+      tabBtn.onclick = () => switchTab(key);
+      tabBtn.dataset.key = key;
+      tabsEl.appendChild(tabBtn);
 
-let cart = [];
-
-let selectedPayment = "";
-
-
-/* ==================================================
-   FORMAT RUPIAH
-================================================== */
-
-function rupiah(number) {
-
-    return new Intl.NumberFormat(
-        "id-ID",
-        {
-            style: "currency",
-            currency: "IDR",
-            maximumFractionDigits: 0
-        }
-    ).format(number);
-
-}
-
-
-/* ==================================================
-   TOAST
-================================================== */
-
-function toast(message) {
-
-    const el = document.getElementById("toast");
-
-    el.textContent = message;
-
-    el.classList.add("show");
-
-    setTimeout(() => {
-
-        el.classList.remove("show");
-
-    }, 2200);
-
-}
-
-
-/* ==================================================
-   ADD CART
-================================================== */
-
-function addToCart(name, price, duration) {
-
-    cart.push({
-        name: name,
-        price: price,
-        duration: duration
+      const panel = document.createElement('div');
+      panel.className = 'brand-panel' + (idx===0 ? ' active' : '');
+      panel.id = 'panel-' + key;
+      const grid = document.createElement('div');
+      grid.className = 'item-grid';
+      PRODUCTS[key].items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'item-card';
+        card.innerHTML = `
+          <div class="item-top">
+            <div>
+              <div class="item-name">${item.name}</div>
+              <div class="item-duration">${item.duration}</div>
+            </div>
+          </div>
+          ${item.note ? `<div class="item-note">${item.note}</div>` : ''}
+          <div class="item-bottom">
+            <div class="item-price">${toRupiah(item.price)}</div>
+            <button class="add-btn" onclick="addToCart('${key}','${item.id}')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+              Keranjang
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+      panel.appendChild(grid);
+      panelsEl.appendChild(panel);
     });
+  }
 
-    updateCartCount();
+  function switchTab(key){
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.key === key));
+    document.querySelectorAll('.brand-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + key));
+  }
 
-    toast("✅ Ditambahkan ke keranjang");
+  /* ------------------ CART LOGIC ------------------ */
+  function findProduct(brandKey, itemId){
+    return PRODUCTS[brandKey].items.find(i => i.id === itemId);
+  }
 
-}
-
-
-/* ==================================================
-   UPDATE CART COUNT
-================================================== */
-
-function updateCartCount() {
-
-    document.getElementById("cartCount").textContent =
-        cart.length;
-
-}
-
-
-/* ==================================================
-   REMOVE CART
-================================================== */
-
-function removeCart(index) {
-
-    cart.splice(index,1);
-
+  function addToCart(brandKey, itemId){
+    const product = findProduct(brandKey, itemId);
+    const existing = cart.find(c => c.id === itemId);
+    if(existing){
+      existing.qty += 1;
+    } else {
+      cart.push({
+        id: itemId,
+        brand: PRODUCTS[brandKey].label,
+        name: product.name,
+        duration: product.duration,
+        price: product.price,
+        qty: 1
+      });
+    }
     renderCart();
+    showToast(`${product.name} (${product.duration}) ditambahkan ke keranjang ✅`);
+  }
 
-    updateCartCount();
-
-}
-
-
-/* ==================================================
-   TOTAL
-================================================== */
-
-function getTotal() {
-
-    return cart.reduce(
-        (total,item) => total + item.price,
-        0
-    );
-
-}
-
-
-/* ==================================================
-   OPEN CART
-================================================== */
-
-function openCart() {
-
+  function updateQty(itemId, delta){
+    const row = cart.find(c => c.id === itemId);
+    if(!row) return;
+    row.qty += delta;
+    if(row.qty <= 0){
+      cart = cart.filter(c => c.id !== itemId);
+    }
     renderCart();
+  }
 
-    document
-        .getElementById("cartModal")
-        .classList.add("active");
+  function removeItem(itemId){
+    cart = cart.filter(c => c.id !== itemId);
+    renderCart();
+  }
 
-}
+  function cartTotal(){
+    return cart.reduce((sum, c) => sum + c.price * c.qty, 0);
+  }
 
+  function renderCart(){
+    const body = document.getElementById('drawerBody');
+    const totalEl = document.getElementById('drawerTotal');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    const count = cart.reduce((s,c) => s + c.qty, 0);
 
-/* ==================================================
-   CLOSE CART
-================================================== */
-
-function closeCart() {
-
-    document
-        .getElementById("cartModal")
-        .classList.remove("active");
-
-}
-
-
-/* ==================================================
-   RENDER CART
-================================================== */
-
-function renderCart() {
-
-    const content =
-        document.getElementById("cartContent");
-
-
-    if(cart.length === 0) {
-
-        content.innerHTML = `
-            <div class="empty">
-                <div style="font-size:45px;margin-bottom:10px;">
-                    🛒
-                </div>
-
-                <div>
-                    Keranjang masih kosong.
-                </div>
-            </div>
-        `;
-
-        return;
-
-    }
-
-
-    let html = "";
-
-
-    cart.forEach((item,index) => {
-
-        html += `
-
-            <div class="cart-item">
-
-                <div>
-
-                    <div class="cart-name">
-                        ${item.name}
-                    </div>
-
-                    <div style="
-                        color:#9ca8c7;
-                        font-size:11px;
-                        margin-top:4px;
-                    ">
-                        ${item.duration}
-                    </div>
-
-                    <div class="cart-price">
-                        ${rupiah(item.price)}
-                    </div>
-
-                </div>
-
-                <button
-                    class="remove"
-                    onclick="removeCart(${index})"
-                >
-                    Hapus
-                </button>
-
-            </div>
-
-        `;
-
+    [document.getElementById('cartBadgeHeader'), document.getElementById('cartBadgeFab')].forEach(el => {
+      el.textContent = count;
+      el.classList.toggle('hidden', count === 0);
     });
 
-
-    html += `
-
-        <div class="total-box">
-
-            <div class="total-row">
-
-                <strong>
-                    Total
-                </strong>
-
-                <strong>
-                    ${rupiah(getTotal())}
-                </strong>
-
+    if(cart.length === 0){
+      body.innerHTML = `<div class="empty-cart">Keranjang masih kosong.<br>Yuk pilih produk dulu 👆</div>`;
+      checkoutBtn.disabled = true;
+    } else {
+      body.innerHTML = cart.map(c => `
+        <div class="cart-row">
+          <div class="cart-row-info">
+            <div class="n">${c.brand} — ${c.name}</div>
+            <div class="d">${c.duration} • ${toRupiah(c.price)}</div>
+            <div class="qty-ctrl">
+              <button onclick="updateQty('${c.id}', -1)">−</button>
+              <span class="q">${c.qty}</span>
+              <button onclick="updateQty('${c.id}', 1)">+</button>
             </div>
-
+          </div>
+          <div class="cart-row-right">
+            <div class="sub">${toRupiah(c.price * c.qty)}</div>
+            <button class="remove-btn" onclick="removeItem('${c.id}')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0-1 14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2L4 6"/></svg>
+            </button>
+          </div>
         </div>
-
-        <button
-            class="checkout-btn"
-            onclick="openCheckout()"
-        >
-            🧾 Lanjut Checkout
-        </button>
-
-    `;
-
-
-    content.innerHTML = html;
-
-}
-
-
-/* ==================================================
-   CHECKOUT
-================================================== */
-
-function openCheckout() {
-
-    if(cart.length === 0) {
-
-        toast("Keranjang masih kosong!");
-
-        return;
-
+      `).join('');
+      checkoutBtn.disabled = false;
     }
+    totalEl.textContent = toRupiah(cartTotal());
+  }
 
+  /* ------------------ DRAWER / MODAL CONTROL ------------------ */
+  function openDrawer(){
+    document.getElementById('drawer').classList.add('open');
+    document.getElementById('overlay').classList.add('show');
+  }
+  function openCheckout(){
+    if(cart.length === 0) return;
+    document.getElementById('drawer').classList.remove('open');
+    renderReceipt();
+    document.getElementById('checkoutModal').classList.add('show');
+    document.getElementById('overlay').classList.add('show');
+  }
+  function closeAll(){
+    document.getElementById('drawer').classList.remove('open');
+    document.getElementById('checkoutModal').classList.remove('show');
+    document.getElementById('overlay').classList.remove('show');
+  }
 
-    closeCart();
+  function renderReceipt(){
+    const box = document.getElementById('receiptBox');
+    const rows = cart.map(c => `
+      <div class="receipt-row">
+        <span>${c.brand} ${c.name} (${c.duration}) x${c.qty}</span>
+        <span>${toRupiah(c.price * c.qty)}</span>
+      </div>
+    `).join('');
+    box.innerHTML = `
+      ${rows}
+      <div class="receipt-divider"></div>
+      <div class="receipt-total"><span>Total</span><span>${toRupiah(cartTotal())}</span></div>
+    `;
+  }
 
-    renderCheckout();
+  /* ------------------ PAYMENT ------------------ */
+  function selectPayment(method){
+    selectedPayment = method;
+    document.querySelectorAll('.pay-opt').forEach(b => b.classList.toggle('active', b.dataset.pay === method));
+    const detail = document.getElementById('payDetail');
 
-
-    document
-        .getElementById("checkoutModal")
-        .classList.add("active");
-
-}
-
-
-function closeCheckout() {
-
-    document
-        .getElementById("checkoutModal")
-        .classList.remove("active");
-
-}
-
-
-/* ==================================================
-   RENDER CHECKOUT SUMMARY
-================================================== */
-
-function renderCheckout() {
-
-    const summary =
-        document.getElementById("checkoutSummary");
-
-
-    let html = "";
-
-
-    cart.forEach(item => {
-
-        html += `
-
-            <div class="summary-line">
-
-                <span>
-                    ${item.name}
-                    <small style="color:#7e89a8;">
-                        (${item.duration})
-                    </small>
-                </span>
-
-                <span>
-                    ${rupiah(item.price)}
-                </span>
-
+    if(method === 'OVO' || method === 'GoPay'){
+      const number = method === 'OVO' ? OVO_NUMBER : GOPAY_NUMBER;
+      detail.innerHTML = `
+        <div class="pay-detail">
+          <div class="num-row">
+            <div>
+              <div class="mute" style="font-size:12.5px; margin-bottom:4px;">Transfer ke nomor ${method}</div>
+              <div class="num mono">${number}</div>
             </div>
-
-        `;
-
-    });
-
-
-    html += `
-
-        <div class="summary-line total">
-
-            <span>
-                TOTAL
-            </span>
-
-            <span>
-                ${rupiah(getTotal())}
-            </span>
-
+            <button class="copy-btn" onclick="copyNumber('${number}')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Salin
+            </button>
+          </div>
         </div>
-
-    `;
-
-
-    summary.innerHTML = html;
-
-}
-
-
-/* ==================================================
-   PAYMENT
-================================================== */
-
-function selectPayment(payment, element) {
-
-    selectedPayment = payment;
-
-
-    document
-        .querySelectorAll(".payment-option")
-        .forEach(el => {
-
-            el.classList.remove("active");
-
-        });
-
-
-    element.classList.add("active");
-
-
-    document
-        .querySelectorAll(".payment-details")
-        .forEach(el => {
-
-            el.classList.remove("active");
-
-        });
-
-
-    document
-        .getElementById(payment)
-        .classList.add("active");
-
-}
-
-
-/* ==================================================
-   PREVIEW BUKTI TRANSFER
-================================================== */
-
-function previewProof(event) {
-
-    const file =
-        event.target.files[0];
-
-    const preview =
-        document.getElementById("proofPreview");
-
-
-    if(!file) {
-
-        preview.style.display = "none";
-
-        return;
-
+      `;
+    } else if(method === 'QRIS'){
+      detail.innerHTML = `
+        <div class="pay-detail qris-box">
+          <svg id="qrisSvg" width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+            <rect width="180" height="180" fill="#ffffff"/>
+            ${generateQrPattern()}
+            <rect x="70" y="70" width="40" height="40" fill="#ffffff" stroke="#140F1F" stroke-width="2"/>
+            <text x="90" y="94" font-size="8" text-anchor="middle" fill="#140F1F" font-family="monospace" font-weight="700">SANN</text>
+          </svg>
+          <div class="mute" style="font-size:12.5px; margin-bottom:10px;">QRIS SANNPREMIUM — scan pakai e-wallet / m-banking apa saja</div>
+          <button class="download-btn" onclick="downloadQris()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Unduh Gambar QRIS
+          </button>
+        </div>
+      `;
     }
-
-
-    if(!file.type.startsWith("image/")) {
-
-        toast("File harus berupa gambar!");
-
-        event.target.value = "";
-
-        return;
-
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload = function(e) {
-
-        preview.src = e.target.result;
-
-        preview.style.display = "block";
-
-    };
-
-
-    reader.readAsDataURL(file);
-
-}
-
-
-/* ==================================================
-   CREATE WHATSAPP MESSAGE
-================================================== */
-
-function createMessage() {
-
-    const name =
-        document.getElementById("buyerName")
-        .value
-        .trim();
-
-
-    const note =
-        document.getElementById("buyerNote")
-        .value
-        .trim();
-
-
-    let message =
-`🛍️ *PESANAN SANNPREMIUM*
-
-👤 Nama: ${name || "Belum diisi"}
-
-📦 *DETAIL PESANAN*
-`;
-
-
-    cart.forEach((item,index) => {
-
-        message += `
-
-${index + 1}. ${item.name}
-   Durasi: ${item.duration}
-   Harga: ${rupiah(item.price)}
-`;
-
-    });
-
-
-    message += `
-
-💰 *TOTAL: ${rupiah(getTotal())}*
-
-💳 Metode Pembayaran:
-${selectedPayment || "Belum dipilih"}
-
-📎 Bukti transfer:
-${document.getElementById("proofFile").files.length > 0
-    ? "Sudah dipilih di website, mohon saya kirimkan bersama chat."
-    : "Belum dilampirkan"
-}
-`;
-
-
-    if(note) {
-
-        message += `
-
-📝 Catatan:
-${note}
-`;
-
-    }
-
-
-    message += `
-
-Mohon diproses pesanan saya. Terima kasih 🙏
-`;
-
-
-    return message;
-
-}
-
-
-/* ==================================================
-   SEND ORDER
-================================================== */
-
-function sendOrder() {
-
-    if(cart.length === 0) {
-
-        toast("Keranjang masih kosong!");
-
-        return;
-
-    }
-
-
-    const name =
-        document.getElementById("buyerName")
-        .value
-        .trim();
-
-
-    if(!name) {
-
-        toast("Masukkan nama terlebih dahulu!");
-
-        document
-            .getElementById("buyerName")
-            .focus();
-
-        return;
-
-    }
-
-
-    if(!selectedPayment) {
-
-        toast("Pilih metode pembayaran!");
-
-        return;
-
-    }
-
-
-    const proof =
-        document.getElementById("proofFile");
-
-
-    if(!proof.files.length) {
-
-        toast("Upload bukti transfer terlebih dahulu!");
-
-        proof.focus();
-
-        return;
-
-    }
-
-
-    const message =
-        createMessage();
-
-
-    const waURL =
-        "https://wa.me/" +
-        WA_NUMBER +
-        "?text=" +
-        encodeURIComponent(message);
-
-
-    document
-        .getElementById("waButton")
-        .href = waURL;
-
-
-    closeCheckout();
-
-
-    document
-        .getElementById("successModal")
-        .classList.add("active");
-
-
-    /*
-       Reset keranjang setelah order.
-    */
-
-    cart = [];
-
-    updateCartCount();
-
-}
-
-
-/* ==================================================
-   CLOSE SUCCESS
-================================================== */
-
-function closeSuccess() {
-
-    document
-        .getElementById("successModal")
-        .classList.remove("active");
-
-}
-
-
-/* ==================================================
-   SHOW PRODUCTS
-================================================== */
-
-function showProducts() {
-
-    const section =
-        document.getElementById("productsSection");
-
-
-    section.style.display = "block";
-
-
-    setTimeout(() => {
-
-        section.scrollIntoView({
-            behavior:"smooth"
-        });
-
-    },50);
-
-}
-
-
-/* ==================================================
-   UNAVAILABLE CATEGORY
-================================================== */
-
-function showUnavailable(category) {
-
-    toast(
-        category +
-        " masih belum tersedia."
-    );
-
-}
-
-
-/* ==================================================
-   CLOSE MODAL WHEN CLICK OUTSIDE
-================================================== */
-
-document.querySelectorAll(".overlay")
-.forEach(overlay => {
-
-    overlay.addEventListener(
-        "click",
-        function(e) {
-
-            if(e.target === overlay) {
-
-                overlay.classList.remove("active");
-
-            }
-
+  }
+
+  function generateQrPattern(){
+    // Pola dekoratif menyerupai QR (placeholder visual, bukan kode QR asli/scannable)
+    let rects = '';
+    const cell = 12;
+    const seed = [1,1,1,0,1,0,1,1,0,1,1,0,1,0,1];
+    for(let row=0; row<12; row++){
+      for(let col=0; col<12; col++){
+        if(row>=5 && row<=8 && col>=5 && col<=8) continue;
+        const on = (row*13 + col*7 + seed[(row+col)%seed.length]) % 3 === 0;
+        if(on){
+          rects += `<rect x="${col*cell+8}" y="${row*cell+8}" width="${cell-2}" height="${cell-2}" fill="#140F1F"/>`;
         }
-    );
+      }
+    }
+    return rects;
+  }
 
-});
+  function downloadQris(){
+    const svg = document.getElementById('qrisSvg');
+    const serializer = new XMLSerializer();
+    const source = serializer.serializeToString(svg);
+    const blob = new Blob([source], {type:'image/svg+xml'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'QRIS-SANNPREMIUM.svg';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
 
+  function copyNumber(number){
+    navigator.clipboard.writeText(number).then(() => {
+      showToast('Nomor berhasil disalin 📋');
+    }).catch(() => {
+      showToast('Gagal menyalin, silakan salin manual ya');
+    });
+  }
 
-/* ==================================================
-   INITIAL
-================================================== */
+  /* ------------------ FILE UPLOAD ------------------ */
+  function handleFile(input){
+    if(input.files && input.files[0]){
+      uploadedFileName = input.files[0].name;
+      const drop = document.getElementById('fileDrop');
+      drop.textContent = '✅ ' + uploadedFileName;
+      drop.classList.add('has-file');
+    }
+  }
 
-updateCartCount();
+  /* ------------------ WHATSAPP CHECKOUT ------------------ */
+  function sendToWhatsapp(){
+    const name = document.getElementById('buyerName').value.trim();
+    const phone = document.getElementById('buyerPhone').value.trim();
+    const note = document.getElementById('buyerNote').value.trim();
 
+    if(cart.length === 0){ showToast('Keranjang masih kosong'); return; }
+    if(!name){ showToast('Isi nama kamu dulu ya'); return; }
+    if(!selectedPayment){ showToast('Pilih metode pembayaran dulu ya'); return; }
+
+    let msg = `Halo SANNPREMIUM! 👋 Saya mau pesan:\n\n`;
+    cart.forEach(c => {
+      msg += `• ${c.brand} — ${c.name} (${c.duration}) x${c.qty} = ${toRupiah(c.price * c.qty)}\n`;
+    });
+    msg += `\nTotal: ${toRupiah(cartTotal())}`;
+    msg += `\nMetode Bayar: ${selectedPayment}`;
+    msg += `\nNama: ${name}`;
+    if(phone) msg += `\nNo. WhatsApp: ${phone}`;
+    if(note) msg += `\nCatatan: ${note}`;
+    if(uploadedFileName) msg += `\n\n(Bukti transfer akan saya kirimkan menyusul di chat ini)`;
+
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.open(url, '_blank');
+    showToast('Membuka WhatsApp… jangan lupa lampirkan bukti transfernya ya!');
+  }
+
+  /* ------------------ TOAST ------------------ */
+  let toastTimer;
+  function showToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+  }
+
+  /* ------------------ VIP CARD TILT ------------------ */
+  const vipCard = document.getElementById('vipCard');
+  const stage = document.querySelector('.card-stage');
+  if(stage && window.matchMedia('(hover: hover)').matches){
+    stage.addEventListener('mousemove', (e) => {
+      const rect = stage.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      vipCard.style.transform = `rotateX(${(-y*14 + 4).toFixed(2)}deg) rotateY(${(x*18 - 6).toFixed(2)}deg)`;
+    });
+    stage.addEventListener('mouseleave', () => {
+      vipCard.style.transform = 'rotateX(6deg) rotateY(-10deg)';
+    });
+  }
+
+  /* ------------------ INIT ------------------ */
+  initProducts();
+  renderCart();
 </script>
-
 </body>
 </html>
